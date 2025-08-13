@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educaser - Formation Moniteur Auto-École</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Hero Section */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(26, 54, 93, 0.85) 100%), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-banner p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            margin: 30px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        .section-block {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* Pricing Section */
+        .pricing-offers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            border: 3px solid var(--light-gray);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .offer-header {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+        }
+
+        .offer-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 15px 0;
+            color: white;
+        }
+
+        .offer-content {
+            padding: 25px;
+        }
+
+        .offer-features {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+            padding-left: 20px;
+        }
+
+        .offer-features li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .offer-features li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        /* Testimonials */
+        .testimonial-wrap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            max-width: 1000px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 35px;
+            position: relative;
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+    
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            font-size: 5rem;
+            color: var(--light-gray);
+            font-family: serif;
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            padding-left: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Curriculum Section */
+        .curriculum-block {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .curriculum-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .curriculum-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .module-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .module-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            border-left: 2px solid var(--light-gray);
+            padding-bottom: 15px;
+        }
+
+        .module-item:before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .module-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Career Path */
+        .career-pathway {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 40px;
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .career-pathway:before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--light-gray);
+            z-index: 0;
+        }
+
+        .career-step {
+            text-align: center;
+            position: relative;
+            width: 20%;
+            padding: 0 10px;
+        }
+
+        .career-step:before {
+            content: "";
+            width: 25px;
+            height: 25px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-step h4 {
+            color: var(--primary);
+        }
+
+
+            .logo-container {
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           gap: 15px;
+           
+            margin: 20px auto;
+        }
+
+        .logo-container img {
+            width: 100%;
+            background-color:#fff;
+            border-radius: 15px;
+
+        }
+
+            /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-banner h1 {
+                font-size: 2.5rem;
+            }
+            
+           
+        }
+
+         @media (max-width: 768px) {
+      
+            .hero-banner {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-banner p {
+                font-size: 1.1rem;
+            }
+            
+            .section-block {
+                padding: 70px 0;
+            }
+
+            .career-pathway {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .career-step {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .career-pathway:before {
+                display: none;
+            }
+
+            .logo-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .logo-container img {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-banner h1 {
+                font-size: 1.8rem;
+            }
+            
+         
+        }
+
+    </style>
+
+
+
+    <header id="header"></header>
+
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <h1>FORMATION SECRÉTAIRE AUTO-ÉCOLE</h1>
+            <p>Devenez le pilier administratif indispensable d'une auto-école</p>
+            
+            <div class="hero-tag">
+                <i class="fas fa-certificate"></i> FORMATION MÉTIER NIVEAU 4 (ÉQUIVALENT BAC)
+            </div>
+            
+            <div class="hero-features">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger la brochure</a>
+                <a href="contact.html#rappel-form" class="btn btn-outline" style="margin-left: 15px;"><i class="fas fa-phone"></i> Être rappelé</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section-block">
+        <div class="container">
+            <div class="section-header">
+                <h2>💼 Nos Formules Tarifaires</h2>
+                <p>Formation 100% finançable selon votre profil</p>
+            </div>
+            
+            <div class="pricing-offers">
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <h3>Formule E-Learning</h3>
+                        <div class="offer-price">1 450 € TTC</div>
+                    </div>
+                    <div class="offer-content">
+                        <p>Formation 100% en ligne</p>
+                        <ul class="offer-features">
+                            <li>Modules administratifs complets</li>
+                            <li>Accès à la plateforme 24h/24</li>
+                            <li>Ressources pédagogiques</li>
+                            <li>Support technique</li>
+                        </ul>
+                        <a href="contact.html#rappel-form" class="btn">Choisir cette formule</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <h3>Formule Tutorée</h3>
+                        <div class="offer-price">1 750 € TTC</div>
+                    </div>
+                    <div class="offer-content">
+                        <p>E-learning + tutorat</p>
+                        <ul class="offer-features">
+                            <li>Tout de la formule E-Learning</li>
+                            <li>10 heures de tutorat individuel</li>
+                            <li>Accompagnement personnalisé</li>
+                            <li>Corrections personnalisées</li>
+                        </ul>
+                        <a href="contact.html#rappel-form" class="btn">Choisir cette formule</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <h3>Classe Virtuelle</h3>
+                        <div class="offer-price">2 450 € TTC</div>
+                    </div>
+                    <div class="offer-content">
+                        <p>Formation à distance</p>
+                        <ul class="offer-features">
+                            <li>Cours en direct avec formateurs</li>
+                            <li>Échanges en temps réel</li>
+                            <li>Accès aux replays</li>
+                            <li>Passage d'évaluation</li>
+                        </ul>
+                        <a href="contact.html#rappel-form" class="btn">Choisir cette formule</a>
+                    </div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <h3>Formule Présentiel</h3>
+                        <div class="offer-price">3 450 € TTC</div>
+                    </div>
+                    <div class="offer-content">
+                        <p>Présentiel ou hybride</p>
+                        <ul class="offer-features">
+                            <li>Accès à nos centres de formation</li>
+                            <li>Accompagnement complet</li>
+                            <li>Mises en situation réelles</li>
+                            <li>Matériel pédagogique fourni</li>
+                        </ul>
+                        <a href="contact.html#rappel-form" class="btn">Choisir cette formule</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; background: var(--light-gray); padding: 25px; border-radius: 15px;">
+                <p><strong>Entrée toute l'année / Formation 100% finançable</strong></p>
+                <p>Éligible au CPF, OPCO, France Travail et autres dispositifs</p>
+
+                   <div class="logo-container">
+                    <img src="media/CPF.png" alt="">
+                    <img src="media/FT.png" alt="">
+                    <img src="media/OPCO.png" alt="">
+                </div>
+
+                <a href="#" class="btn btn-secondary" style="margin-top: 20px;"><i class="fas fa-download"></i> Télécharger l'agenda de formation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="section-block" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pourquoi choisir Educaser ?</h2>
+                <p>Une formation qui fait la différence</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Métier d'avenir</h3>
+                    <p>Forts besoins en recrutement dans les auto-écoles et centres de formation</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Formation professionnalisante</h3>
+                    <p>Axée sur les compétences administratives, relationnelles et réglementaires</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <h3>Flexibilité</h3>
+                    <p>Formation à votre rythme, en ligne ou en présentiel</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Tutorat inclus</h3>
+                    <p>10 heures de tutorat individuel offertes</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Équipe pédagogique</h3>
+                    <p>Formateurs expérimentés issus du secteur</p>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h3>Financement complet</h3>
+                    <p>Jusqu'à 100% pris en charge selon votre situation</p>
+                </div>
+            </div>
+            
+            <div class="curriculum-block" style="margin-top: 50px; background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%); color: white;">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon" style="background: rgba(255,255,255,0.15); color: white;">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: white;">Accompagnement financement</h3>
+                        <p>Formation finançable via CPF, OPCO, France Travail, ou en financement personnel. Un conseiller vous accompagne pour mobiliser les bons dispositifs selon votre profil.</p>
+                    </div>
+                </div>
+                <a href="contact.html#rappel-form" class="btn" style="background: white; color: var(--primary);">Demander un accompagnement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-block">
+        <div class="container">
+            <div class="section-header">
+                <h2>🗣️ Témoignages de nos diplômés</h2>
+                <p>Ce que disent nos anciens élèves</p>
+            </div>
+            
+            <div class="testimonial-wrap">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Grâce à cette formation, j'ai pu intégrer rapidement une auto-école près de chez moi. Le contenu est clair et axé sur la réalité du terrain.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ID</div>
+                        <div class="author-info">
+                            <h4>Isabelle D.</h4>
+                            <p>42 ans, Melun</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Formation très flexible. J'ai suivi les modules en ligne tout en gardant mon emploi. Aujourd'hui, je suis secrétaire d'accueil dans une auto-école.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">YM</div>
+                        <div class="author-info">
+                            <h4>Yacine M.</h4>
+                            <p>30 ans, Meaux</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Le tutorat est très utile pour comprendre les documents spécifiques au métier. On apprend aussi la gestion des plannings, le contact client... c'est complet.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SF</div>
+                        <div class="author-info">
+                            <h4>Stéphanie F.</h4>
+                            <p>38 ans, Noisy-le-Sec</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        J'ai décroché un CDI après mon stage. Formation sérieuse, très bon encadrement, et des outils utiles pour les tâches quotidiennes.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MH</div>
+                        <div class="author-info">
+                            <h4>Marc H.</h4>
+                            <p>26 ans, Palaiseau</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="section-block" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Programme de Formation</h2>
+                <p>Un contenu complet et professionnalisant</p>
+            </div>
+            
+            <div class="curriculum-block">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <h3>Objectif de la formation</h3>
+                        <p>Préparer les participants à occuper un poste administratif au sein d'une auto-école ou d'un centre de formation à la conduite.</p>
+                    </div>
+                </div>
+                <p>La formation vise à maîtriser les outils de gestion, d'accueil, de planification et de suivi pédagogique dans ce secteur réglementé.</p>
+            </div>
+            
+            <div class="curriculum-block">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div>
+                        <h3>Activités visées</h3>
+                    </div>
+                </div>
+                <div class="features-grid" style=" grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="feature-box" style="text-align: left; align-items: flex-start;">
+                        <h3><i class="fas fa-users" style="color: var(--secondary); margin-right: 10px;"></i> Accueil</h3>
+                        <p>Accueillir les clients et gérer les appels/emails</p>
+                    </div>
+                    <div class="feature-box" style="text-align: left; align-items: flex-start;">
+                        <h3><i class="fas fa-folder" style="color: var(--secondary); margin-right: 10px;"></i> Dossiers</h3>
+                        <p>Constituer les dossiers administratifs des candidats</p>
+                    </div>
+                    <div class="feature-box" style="text-align: left; align-items: flex-start;">
+                        <h3><i class="fas fa-calendar" style="color: var(--secondary); margin-right: 10px;"></i> Planning</h3>
+                        <p>Gérer les plannings des moniteurs et des élèves</p>
+                    </div>
+                    <div class="feature-box" style="text-align: left; align-items: flex-start;">
+                        <h3><i class="fas fa-file-alt" style="color: var(--secondary); margin-right: 10px;"></i> Suivi</h3>
+                        <p>Suivre les présences, absences, et examens</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="curriculum-block">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h3>Contenu de la formation</h3>
+                    </div>
+                </div>
+                
+                <ul class="module-list">
+                    <li class="module-item">
+                        <div class="module-title">Module 1 : Accueil et relation client</div>
+                        <p>Posture professionnelle, techniques d'accueil physique et téléphonique, gestion des conflits et réclamations</p>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-title">Module 2 : Gestion des dossiers administratifs</div>
+                        <p>Constitution des dossiers d'inscription, démarches ANTS, suivi France Travail, CPF, documents obligatoires</p>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-title">Module 3 : Outils numériques et bureautiques</div>
+                        <p>Maîtrise de Word, Excel, Outlook, plateformes de gestion des auto-écoles, tableaux de suivi</p>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-title">Module 4 : Connaissance du secteur auto-école</div>
+                        <p>Réglementation du permis B, rôle des acteurs (élèves, enseignants, inspecteurs, financeurs)</p>
+                    </li>
+                    <li class="module-item">
+                        <div class="module-title">Module transversal : Techniques de recherche d'emploi</div>
+                        <p>Réalisation de CV, lettres, préparation aux entretiens, stratégie de recherche</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section class="section-block">
+        <div class="container">
+            <div class="section-header">
+                <h2>🚀 Débouchés professionnels</h2>
+                <p>Un métier avec de réelles perspectives d'évolution</p>
+            </div>
+            
+            <div class="curriculum-block" style="background: var(--light-gray);">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h3>Postes visés</h3>
+                    </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h3>Secrétaire d'auto-école</h3>
+                        <p>Gestion administrative et accueil</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Assistant administratif</h3>
+                        <p>En centre de formation à la conduite</p>
+                    </div>
+                    <div class="feature-box">
+                        <h3>Gestionnaire de planning</h3>
+                        <p>Dans le secteur de la formation routière</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="curriculum-block">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3>Salaire et évolution</h3>
+                    </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-box" style="background: #f0fff4;">
+                        <h3><i class="fas fa-euro-sign"></i> Salaire</h3>
+                        <p>De 1 600 € à 2 000 € brut par mois selon structure et expérience</p>
+                    </div>
+                    <div class="feature-box" style="background: #fff5f5;">
+                        <h3><i class="fas fa-user-graduate"></i> Évolution</h3>
+                        <p>Responsable administratif, coordinateur pédagogique, adjoint de direction</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>📈 Évolution de carrière</h2>
+            </div>
+            
+            <div class="career-pathway">
+                <div class="career-step">
+                    <h4>Secrétaire Auto-École</h4>
+                    <p>Gestion administrative et accueil</p>
+                </div>
+                
+                <div class="career-step">
+                    <h4>Responsable Administratif</h4>
+                    <p>Encadrement d'une équipe administrative</p>
+                </div>
+                
+                <div class="career-step">
+                    <h4>Coordinateur Pédagogique</h4>
+                    <p>Gestion des formateurs et des plannings</p>
+                </div>
+                
+                <div class="career-step">
+                    <h4>Adjoint de Direction</h4>
+                    <p>Participation à la gestion de l'établissement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Section -->
+    <section class="section-block" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2>📝 Modalités pratiques</h2>
+            </div>
+            
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Formation à distance</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>Modules e-learning accessibles 24h/24</li>
+                        <li>Plateforme intuitive</li>
+                        <li>Tutorats individuels à la demande</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Prérequis</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>Niveau bac ou équivalent</li>
+                        <li>Aisance à l'oral et à l'écrit</li>
+                        <li>Maîtrise de base des outils bureautiques</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Méthodes mobilisées</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>Cours vidéo, cas pratiques</li>
+                        <li>Suivi individuel</li>
+                        <li>Ressources pédagogiques permanentes</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Validation</h3>
+                    <ul style="text-align: left; padding-left: 20px;">
+                        <li>Évaluation continue et dossier final</li>
+                        <li>Attestation de fin de formation</li>
+                        <li>Taux de réussite : 94% (2025)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="curriculum-block" style="margin-top: 40px; background: var(--primary); color: white;">
+                <div class="curriculum-header">
+                    <div class="curriculum-icon" style="background: rgba(255,255,255,0.15); color: white;">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: white;">Accès à la formation</h3>
+                        <p>Délai d'accès : 15 jours pour financement personnel ou CPF, 21 jours via France Travail, 15 jours via OPCO</p>
+                    </div>
+                </div>
+                <a href="contact.html#rappel-form" class="btn" style="background: white; color: var(--primary);">S'inscrire maintenant</a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger la brochure complète</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+   
+
+    <footer id="footer"></footer>
+
+
+
+
+    <script>
+
+
+
+
+      
+    </script>
+
+
+    <script src="main.js"></script>
+
+
+</head>
+
+</html>

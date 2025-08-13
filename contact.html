@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educaser - Formation Moniteur Auto-École</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+
+  /* Hero Section */
+        .form-hero {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(26, 54, 93, 0.85) 100%), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .form-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .form-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Form Container */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: -70px auto 100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-section {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .form-section:hover {
+            transform: translateY(-10px);
+        }
+
+        .form-header {
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .form-body {
+            padding: 30px;
+        }
+
+        .form-step {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .form-step:last-child {
+            border-bottom: none;
+        }
+
+        .form-step h3 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-step h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-item input {
+            margin-right: 8px;
+        }
+
+        .form-footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .form-notice {
+            background: rgba(72, 187, 120, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: rgba(26, 54, 93, 0.05);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+       
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .form-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+     
+        
+            
+            .form-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .form-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-container {
+                margin-top: -50px;
+            }
+            
+            .form-section {
+                margin-bottom: 30px;
+            }
+            
+          
+        }
+       
+    </style>
+
+
+
+    <header id="header"></header>
+
+
+
+<!-- Hero Section -->
+    <section class="form-hero">
+        <div class="container">
+            <h1>DEMANDE DE DEVIS OU RAPPEL</h1>
+            <p>Obtenez des informations personnalisées sur nos formations et financements</p>
+        </div>
+    </section>
+
+    <!-- Form Container -->
+    <div class="container">
+        <div class="form-container">
+            <!-- Devis Form -->
+            <div class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h2>Formulaire de demande de devis</h2>
+                    <p>Obtenez un devis personnalisé gratuitement</p>
+                </div>
+                
+                <div class="form-body">
+                    <form id="devis-form" action="https://formsubmit.co/ahmed.trad15@gmail.com" method="POST">
+                        <div class="form-step">
+                            <h3><i class="fas fa-user"></i> 1. Vos coordonnées</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prenom">Prénom</label>
+                                    <input type="text" id="prenom" name="Prénom" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="nom">Nom</label>
+                                    <input type="text" id="nom" name="Non" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Adresse email</label>
+                                    <input type="email" id="email" name="Email" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="telephone">Téléphone</label>
+                                    <input type="tel" id="telephone" name="Téléphone" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="ville">Ville de résidence</label>
+                                <input type="text" id="ville" name="Ville" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step">
+                            <h3><i class="fas fa-graduation-cap"></i> 2. Formation concernée</h3>
+                            
+                            <div class="form-group">
+                                <label>Je souhaite un devis pour :</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="moniteur" name="formation" value="moniteur" checked>
+                                        <label for="moniteur">Moniteur Auto-École (TP ECSR – RNCP35329, niveau Bac+2)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="secretaire" name="formation" value="secretaire">
+                                        <label for="secretaire">Secrétaire Auto-École (niveau Bac)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Mode souhaité :</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="presentiel" name="mode" value="presentiel" checked>
+                                        <label for="presentiel">Présentiel (centre de formation)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="distance" name="mode" value="distance">
+                                        <label for="distance">À distance (e-learning ou classe virtuelle)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Centre souhaité :</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="palaiseau" name="centre" value="palaiseau" checked>
+                                        <label for="palaiseau">Palaiseau (91)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="noisy" name="centre" value="noisy">
+                                        <label for="noisy">Noisy-le-Sec (93)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="meaux" name="centre" value="meaux">
+                                        <label for="meaux">Meaux (77)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="distance-centre" name="centre" value="distance">
+                                        <label for="distance-centre">À distance</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step">
+                            <h3><i class="fas fa-info-circle"></i> 3. Informations complémentaires</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cpf">Avez-vous un compte CPF actif ?</label>
+                                    <select id="cpf" name="compte_cpf_actif" class="form-control">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="oui">Oui</option>
+                                        <option value="non">Non</option>
+                                        <option value="inconnu">Je ne sais pas</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="france-travail">Êtes-vous inscrit(e) à France Travail ?</label>
+                                    <select id="france-travail" name="inscription_france_travail" class="form-control">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="oui">Oui</option>
+                                        <option value="non">Non</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="financement">Souhaitez-vous qu'on vous aide à mobiliser un financement ?</label>
+                                <select id="financement" name="mobilité_financement" class="form-control">
+                                    <option value="">Sélectionnez...</option>
+                                    <option value="oui">Oui</option>
+                                    <option value="non">Non</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="commentaires">Précisez tout autre élément utile :</label>
+                                <textarea id="commentaires" name="commentaire" class="form-control" rows="4" placeholder="Vos commentaires..."></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-notice">
+                            <i class="fas fa-info-circle"></i> Un conseiller vous contacte sous 24h pour finaliser votre demande
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Je demande mon devis gratuit
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="form-footer">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i> contact@educaser.fr
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i> Centres : Palaiseau – Noisy-le-Sec – Meaux
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rappel Form -->
+            <div class="form-section">
+                <div class="form-header">
+                    <i class="fas fa-phone-alt"></i>
+                    <h2>Formulaire de demande de rappel</h2>
+                    <p>Laissez-nous votre numéro, on vous rappelle !</p>
+                </div>
+                
+                <div class="form-body">
+                    <form id="rappel-form" action="https://formsubmit.co/ahmed.trad15@gmail.com" method="POST">
+                        <div class="form-step">
+                            <h3><i class="fas fa-user"></i> 1. Vos coordonnées</h3>
+                            
+                            <div class="form-group">
+                                <label for="nom-prenom">Nom / Prénom</label>
+                                <input type="text" id="nom-prenom" name="nom_et_prénom" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telephone-rappel">Numéro de téléphone</label>
+                                    <input type="tel" id="telephone-rappel" name="téléphone" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email-rappel">Adresse email (facultatif)</label>
+                                    <input type="email" id="email-rappel" name="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-step">
+                            <h3><i class="fas fa-clock"></i> 2. Votre disponibilité pour le rappel</h3>
+                            
+                            <div class="form-group">
+                                <label>Quand préférez-vous être rappelé ?</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="matin" name="dispo" value="matin" checked>
+                                        <label for="matin">Le matin</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="aprem" name="dispo" value="aprem">
+                                        <label for="aprem">L'après-midi</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="autre" name="dispo" value="autre">
+                                        <label for="autre">Autre</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" id="autre-dispo">
+                                <label for="precision-dispo">Précisez votre disponibilité :</label>
+                                <input type="text" id="precision-dispo" name="disponibilité" class="form-control" placeholder="Ex: Vendredi après 17h">
+                            </div>
+                        </div>
+                        
+                        <div class="form-step">
+                            <h3><i class="fas fa-question-circle"></i> 3. Objet du rappel (facultatif)</h3>
+                            
+                            <div class="form-group">
+                                <label>Je souhaite être rappelé au sujet de :</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" id="inscription" name="objet" value="inscription">
+                                        <label for="inscription">Une inscription</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="devis" name="objet" value="devis">
+                                        <label for="devis">Un devis ou financement</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="info" name="objet" value="info" checked>
+                                        <label for="info">Une information sur la formation</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="autre-objet" name="objet" value="autre">
+                                        <label for="autre-objet">Autre</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" id="autre-objet-precision">
+                                <label for="precision-objet">Précisez l'objet de votre demande :</label>
+                                <input type="text" id="precision-objet" name="objet" class="form-control" placeholder="Ex: Demande d'informations sur le financement">
+                            </div>
+                        </div>
+                        
+                        <div class="form-notice">
+                            <i class="fas fa-info-circle"></i> Notre équipe vous rappelle sous 24h (hors week-ends)
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-phone-alt"></i> Être rappelé gratuitement
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="form-footer">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i> contact@educaser.fr
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i> Centres : Palaiseau, Noisy-le-Sec, Meaux
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer id="footer"></footer>
+
+
+
+
+    <script>
+
+   // Show/hide "autre" field for disponibilité
+        const autreDispo = document.querySelector('input[name="dispo"][value="autre"]');
+        const autreDispoField = document.getElementById('autre-dispo');
+        
+        autreDispo.addEventListener('change', function() {
+            if (this.checked) {
+                autreDispoField.style.display = 'block';
+            } else {
+                autreDispoField.style.display = 'none';
+            }
+        });
+        
+        // Show/hide "autre" field for objet
+        const autreObjet = document.querySelector('input[name="objet"][value="autre"]');
+        const autreObjetField = document.getElementById('autre-objet-precision');
+        
+        autreObjet.addEventListener('change', function() {
+            if (this.checked) {
+                autreObjetField.style.display = 'block';
+            } else {
+                autreObjetField.style.display = 'none';
+            }
+        });
+        
+      
+
+    </script>
+
+
+    <script src="main.js"></script>
+
+
+</head>
+
+</html>
